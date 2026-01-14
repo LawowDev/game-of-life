@@ -59,7 +59,7 @@ void next_state(int** state)
     int** proximity_tab = malloc(sizeof(int*)*height);
     for (int i = 0; i < height; i++)
     {
-        int* temp = malloc(sizeof(int*)*width);
+        int* temp = calloc(width, sizeof(int));
         proximity_tab[i] = temp;
     }
 
@@ -92,6 +92,13 @@ void next_state(int** state)
             }
         }
     }
+
+    for (int i = 0; i < height; i++)
+    {
+        free(proximity_tab[i]);
+    }
+
+    free(proximity_tab);
 }
 
 
@@ -125,5 +132,12 @@ int main(void)
             break;
         }
     }
+
+    for (int i = 0; i < height; i++)
+    {
+        free(state_tab[i]);
+    }
+
+    free(state_tab);
     return EXIT_SUCCESS;
 }
