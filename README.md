@@ -1,6 +1,4 @@
-![License](https://img.shields.io/github/license/cocosilex/ws-chat)
-![Go](https://img.shields.io/badge/Go-Client-blue)
-![Java](https://img.shields.io/badge/Java-Server-orange)
+![License](https://img.shields.io/github/license/LawowDev/game-of-life)
 
 # Compiling
 make sure you have ncurses installed on your machine.
