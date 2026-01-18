@@ -24,17 +24,31 @@ void randomize(int** state)
 void draw_state(int** state)
 {
     clear();
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < height; i+=2)
     {
         for (int j = 0; j < width; j++)
         {
             if (state[i][j] == 1)
             {
-                mvprintw(i, 2*j, "██");
+                if (state[i+1][j] == 1)
+                {
+                    mvprintw(i/2, j, "█");
+                }
+                else
+                {
+                    mvprintw(i/2, j, "▀");
+                }
             }
             else
             {
-                mvprintw(i, 2*j, "  ");
+                if (state[i+1][j] == 1)
+                {
+                    mvprintw(i/2, j, "▄");
+                }
+                else
+                {
+                    mvprintw(i/2, j, " ");
+                }
             }
         }
     }
@@ -114,6 +128,7 @@ int main(void)
 
     setlocale(LC_ALL, "");
     initscr();
+    noecho();
     randomize(state_tab);
     draw_state(state_tab);
 
